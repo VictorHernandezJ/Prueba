@@ -64,22 +64,25 @@ public class AgregarReceta extends AppCompatActivity {
         btnAgregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String nombre = txtNombre.getText().toString();
-                String ingredientes = txtIngredientes.getText().toString();
-                String tiempo = txtTiempo.getText().toString();
-                String pasos = txtPasos.getText().toString();
-                String dificultad = dificultades[indDificultad];
-                String tipo = tipoReceta[indTipo];
+               if(txtNombre.getText().equals("") || txtTiempo.getText().equals("")){
 
-                Receta oReceta = new Receta(nombre,ingredientes,tiempo,pasos,dificultad,tipo);
+               }else{
+                   String nombre = txtNombre.getText().toString();
+                   String ingredientes = txtIngredientes.getText().toString();
+                   String tiempo = txtTiempo.getText().toString();
+                   String pasos = txtPasos.getText().toString();
+                   String dificultad = dificultades[indDificultad];
+                   String tipo = tipoReceta[indTipo];
 
-                MantenimientoReceta oManReceta = new MantenimientoReceta();
-                if(oManReceta.Agregar(AgregarReceta.this,oReceta))
-                    Toast.makeText(AgregarReceta.this,"Registro Correcto",Toast.LENGTH_SHORT).show();
-                else
-                    Toast.makeText(AgregarReceta.this,"Registro Incorrecto",Toast.LENGTH_SHORT).show();
+                   Receta oReceta = new Receta(nombre,ingredientes,tiempo,pasos,dificultad,tipo);
 
-                Limpiar();
+                   MantenimientoReceta oManReceta = new MantenimientoReceta();
+                   if(oManReceta.Agregar(AgregarReceta.this,oReceta))
+                       Toast.makeText(AgregarReceta.this,"Registro Correcto",Toast.LENGTH_SHORT).show();
+                   else
+                       Toast.makeText(AgregarReceta.this,"Registro Incorrecto",Toast.LENGTH_SHORT).show();
+                   Limpiar();
+               }
             }
         });
     }
