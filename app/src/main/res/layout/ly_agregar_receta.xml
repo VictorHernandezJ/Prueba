@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/coke3"
     android:layout_height="match_parent"
     tools:context=".AgregarReceta">
 
@@ -11,21 +12,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:fontFamily="cursive"
         android:text="Nueva Receta"
+        android:textAlignment="textStart"
         android:textColor="#7A4F42"
-        android:textSize="25sp"
+        android:textSize="50sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/txtNombreAgregar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="226dp"
+        android:layout_height="49dp"
         android:layout_marginTop="40dp"
         android:ems="10"
+        android:fontFamily="cursive"
         android:hint="Nombre "
         android:inputType="textPersonName"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.154"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,9 +43,11 @@
         android:layout_height="145dp"
         android:layout_marginTop="24dp"
         android:ems="10"
+        android:fontFamily="cursive"
         android:gravity="start|top"
         android:hint="Preparación"
         android:inputType="textMultiLine"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.295"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,9 +59,11 @@
         android:layout_height="112dp"
         android:layout_marginTop="36dp"
         android:ems="10"
+        android:fontFamily="cursive"
         android:gravity="start|top"
         android:hint="Ingredientes"
         android:inputType="textMultiLine"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.284"
         app:layout_constraintStart_toStartOf="parent"
@@ -61,13 +71,15 @@
 
     <EditText
         android:id="@+id/txtTiempo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="212dp"
+        android:layout_height="47dp"
         android:layout_marginStart="36dp"
         android:layout_marginTop="56dp"
         android:ems="10"
+        android:fontFamily="cursive"
         android:hint="Tiempo  h:min"
         android:inputType="time"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtIngredientes" />
 
@@ -86,8 +98,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="68dp"
+        android:fontFamily="cursive"
         android:text="Dificultad"
-        android:textSize="20sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtIngredientes" />
 
@@ -96,11 +109,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:fontFamily="cursive"
         android:text="Guardar"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.462"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPasos" />
+        app:layout_constraintTop_toBottomOf="@+id/txtPasos"
+        app:rippleColor="#673AB7" />
 
     <Spinner
         android:id="@+id/spTipo"
@@ -117,8 +134,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="100dp"
+        android:fontFamily="cursive"
         android:text="Tipo"
-        android:textSize="20sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
