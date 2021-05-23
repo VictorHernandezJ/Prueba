@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -19,40 +21,62 @@ import unc.edu.ayudaamam.Data.MantenimientoReceta;
 public class ListaRecetas extends AppCompatActivity {
     ListView lvLista;
     int recetaSelecionada;
-    ImageButton btnBuscar;
     EditText txtBuscar;
+    ArrayAdapter<String> adapter;
+    ArrayList<String> listaReceta;
+    MantenimientoReceta oManReceta = new MantenimientoReceta();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ly_lista_recetas);
         lvLista = findViewById(R.id.lvLista);
         txtBuscar = findViewById(R.id.txtBuscar);
-        btnBuscar = findViewById(R.id.imgbtnBuscar);
-        MantenimientoReceta oManReceta = new MantenimientoReceta();
         oManReceta.CargarListaReceta(ListaRecetas.this);
+        listaReceta = oManReceta.mostrarListaRecetas();
+        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listaReceta);
 
-        lvLista.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, oManReceta.mostrarListaRecetas()));
+        lvLista.setAdapter(adapter);
 
-        btnBuscar.setOnClickListener(new View.OnClickListener() {
+        //metodo para busqueda
+        txtBuscar.addTextChangedListener(new TextWatcher() {
             @Override
-            public void onClick(View v) {
-                if(oManReceta.Buscar(ListaRecetas.this,txtBuscar.getText().toString())){
-                    lvLista.setAdapter(new ArrayAdapter<String>(ListaRecetas.this, android.R.layout.simple_list_item_1, oManReceta.mostrarListaRecetas()));
-                }
-                else
-                    Toast.makeText(ListaRecetas.this, "La receta NO existe",Toast.LENGTH_SHORT).show();
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                adapter.getFilter().filter(s);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
             }
         });
 
         lvLista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                recetaSelecionada = position;
+                String comparar = adapter.getItem(position);
+                int index = calcularIndice(listaReceta,comparar);
                 Intent oInteto = new Intent(ListaRecetas.this,RecetaDetallada.class);
-                oInteto.putExtra("receta",recetaSelecionada);
+                oInteto.putExtra("receta",index);
                 startActivity(oInteto);
             }
         });
+    }
+    //calcular indice para la receta
+    public int calcularIndice(ArrayList<String> lista, String mensaje){
+        int j=0;
+        for(int i=0; i<lista.size();i++){
+            if(lista.get(i).toString().equals(mensaje)) {
+                j=i;
+                break;
+            }
+        }
+        return j;
     }
 
 }
