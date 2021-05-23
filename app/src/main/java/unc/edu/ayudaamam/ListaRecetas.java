@@ -37,6 +37,8 @@ public class ListaRecetas extends AppCompatActivity {
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listaReceta);
 
         lvLista.setAdapter(adapter);
+
+        //metodo para busqueda
         txtBuscar.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -65,7 +67,7 @@ public class ListaRecetas extends AppCompatActivity {
             }
         });
     }
-
+    //calcular indice para la receta
     public int calcularIndice(ArrayList<String> lista, String mensaje){
         int j=0;
         for(int i=0; i<lista.size();i++){
