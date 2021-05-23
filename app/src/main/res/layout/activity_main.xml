@@ -8,11 +8,12 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="281dp"
-        android:layout_height="123dp"
+        android:layout_width="344dp"
+        android:layout_height="153dp"
         android:layout_marginRight="32dp"
+        android:fontFamily="@font/aclonica"
         android:text="Bienvenida Mamá !!!!"
-        android:textAlignment="textEnd"
+        android:textAlignment="center"
         android:textAllCaps="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Display4"
         android:textColor="#AC3ADC"
