@@ -92,9 +92,10 @@ public class EditarReceta extends AppCompatActivity {
                 String tipo = tipoReceta[indTipo];
 
                 Receta oRecActulizada = new Receta(nombre,ingredientes,tiempo,pasos,dificultad,tipo);
-                if(oMantReceta.Actualizar(EditarReceta.this,oRecActulizada, condicion))
-                    Toast.makeText(EditarReceta.this,"Registro Correcto",Toast.LENGTH_SHORT).show();
-                //comentario
+                if(oMantReceta.Actualizar(EditarReceta.this,oRecActulizada, condicion)) {
+                    Toast.makeText(EditarReceta.this, "Registro Correcto", Toast.LENGTH_SHORT).show();
+                    Intent oIntento = new Intent(EditarReceta.this,ListaRecetas.class);
+                }
                 else
                     Toast.makeText(EditarReceta.this,"Registro Incorrecto",Toast.LENGTH_SHORT).show();
                 Limpiar();
