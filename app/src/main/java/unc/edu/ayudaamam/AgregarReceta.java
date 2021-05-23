@@ -2,6 +2,7 @@ package unc.edu.ayudaamam;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -83,6 +84,7 @@ public class AgregarReceta extends AppCompatActivity {
                    else
                        Toast.makeText(AgregarReceta.this,"Registro Incorrecto",Toast.LENGTH_SHORT).show();
                    Limpiar();
+
                }
             }
         });

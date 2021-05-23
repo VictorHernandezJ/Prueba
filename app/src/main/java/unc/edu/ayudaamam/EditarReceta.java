@@ -2,6 +2,7 @@ package unc.edu.ayudaamam;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.LimitExceededException;
 import android.view.View;
@@ -93,6 +94,7 @@ public class EditarReceta extends AppCompatActivity {
                 Receta oRecActulizada = new Receta(nombre,ingredientes,tiempo,pasos,dificultad,tipo);
                 if(oMantReceta.Actualizar(EditarReceta.this,oRecActulizada, condicion))
                     Toast.makeText(EditarReceta.this,"Registro Correcto",Toast.LENGTH_SHORT).show();
+                //comentario
                 else
                     Toast.makeText(EditarReceta.this,"Registro Incorrecto",Toast.LENGTH_SHORT).show();
                 Limpiar();
