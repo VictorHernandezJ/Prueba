@@ -3,6 +3,7 @@ package unc.edu.ayudaamam;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.icu.text.UnicodeSetSpanner;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -30,19 +31,20 @@ public class RegistroUsuario extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 MantenimientoUsuario oMantUsuario = new MantenimientoUsuario();
-
                 String nombre = txtNombre.getText().toString();
                 String usuario = txtUsuario.getText().toString();
                 String clave = txtClave.getText().toString();
-
-                Usuario oUsuario = new Usuario(nombre,usuario,clave);
-
-                if(oMantUsuario.AgregarUsuario(RegistroUsuario.this,oUsuario))
-                    Toast.makeText(RegistroUsuario.this,"Registro Exitoso",Toast.LENGTH_LONG).show();
-                else
-                    Toast.makeText(RegistroUsuario.this,"El Registro Falló",Toast.LENGTH_LONG).show();
-                Intent oIntento = new Intent(RegistroUsuario.this,IniciarSesion.class);
-                startActivity(oIntento);
+                if(nombre.equals("") || usuario.equals("") || clave.equals("")){
+                    Toast.makeText(RegistroUsuario.this,"Campos Vacíos, Completa los datos",Toast.LENGTH_LONG).show();
+                }else{
+                    Usuario oUsuario = new Usuario(nombre,usuario,clave);
+                    if(oMantUsuario.AgregarUsuario(RegistroUsuario.this,oUsuario))
+                        Toast.makeText(RegistroUsuario.this,"Registro Exitoso",Toast.LENGTH_LONG).show();
+                    else
+                        Toast.makeText(RegistroUsuario.this,"El Registro Falló",Toast.LENGTH_LONG).show();
+                    Intent oIntento = new Intent(RegistroUsuario.this,IniciarSesion.class);
+                    startActivity(oIntento);
+                }
             }
         });
 

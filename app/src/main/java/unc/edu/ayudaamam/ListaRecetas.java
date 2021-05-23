@@ -33,16 +33,16 @@ public class ListaRecetas extends AppCompatActivity {
 
         lvLista.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, oManReceta.mostrarListaRecetas()));
 
-        /*btnBuscar.setOnClickListener(new View.OnClickListener() {
+        btnBuscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(oManReceta.Buscar(ListaRecetas.this,txtBuscar.getText().toString())){
                     lvLista.setAdapter(new ArrayAdapter<String>(ListaRecetas.this, android.R.layout.simple_list_item_1, oManReceta.mostrarListaRecetas()));
                 }
                 else
-                    Toast.makeText(ListaRecetas.this, "NO encontró registros",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ListaRecetas.this, "La receta NO existe",Toast.LENGTH_SHORT).show();
             }
-        });*/
+        });
 
         lvLista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

@@ -6,4 +6,7 @@
     <item
         android:id="@+id/ItemAgregar"
         android:title="Agregar Receta" />
+    <item
+        android:id="@+id/ItemCerrarSesion"
+        android:title="Cerra Sesión" />
 </menu>

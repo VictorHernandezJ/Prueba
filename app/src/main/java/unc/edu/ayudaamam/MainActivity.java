@@ -37,6 +37,10 @@ public class MainActivity extends AppCompatActivity {
                 oIntento = new Intent(this, ListaRecetas.class);
                 startActivity(oIntento);
                 break;
+            case R.id.ItemCerrarSesion:
+                oIntento = new Intent(this, IniciarSesion.class);
+                startActivity(oIntento);
+                break;
         }
         return super.onOptionsItemSelected(item);
 

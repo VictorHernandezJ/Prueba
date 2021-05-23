@@ -64,8 +64,9 @@ public class AgregarReceta extends AppCompatActivity {
         btnAgregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               if(txtNombre.getText().equals("") || txtTiempo.getText().equals("")){
-
+               if(txtNombre.getText().toString().equals("") || txtIngredientes.getText().toString().equals("") || txtTiempo.getText().toString().equals("")
+               || txtPasos.getText().toString().equals("")){
+                   Toast.makeText(AgregarReceta.this,"No se puede Agregar la receta, Campo Vacío",Toast.LENGTH_SHORT).show();
                }else{
                    String nombre = txtNombre.getText().toString();
                    String ingredientes = txtIngredientes.getText().toString();
