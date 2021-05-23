@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/coke5"
     android:layout_height="match_parent"
     tools:context=".RecetaDetallada">
 
@@ -17,21 +18,21 @@
             android:id="@+id/txtNomReceta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="serif-monospace"
-            android:text="Receta de "
+            android:fontFamily="cursive"
+            android:text="Receta "
             android:textAlignment="center"
-            android:textAllCaps="true"
+            android:textAllCaps="false"
             android:textColor="#9C27B0"
-            android:textSize="35sp" />
+            android:textSize="50sp" />
 
         <TextView
             android:id="@+id/textView9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="serif-monospace"
+            android:fontFamily="cursive"
             android:text="Ingredientes"
-            android:textAllCaps="true"
-            android:textColor="#3F51B5"
+            android:textAllCaps="false"
+            android:textColor="#9C27B0"
             android:textSize="25sp" />
 
         <ListView
@@ -43,10 +44,10 @@
             android:id="@+id/textView10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="serif-monospace"
+            android:fontFamily="cursive"
             android:text="Preparación"
-            android:textAllCaps="true"
-            android:textColor="#3F51B5"
+            android:textAllCaps="false"
+            android:textColor="#9C27B0"
             android:textSize="25sp" />
 
         <ListView
