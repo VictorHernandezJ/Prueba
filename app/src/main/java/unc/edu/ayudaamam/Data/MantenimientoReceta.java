@@ -7,8 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
 
-import unc.edu.ayudaamam.AgregarReceta;
-import unc.edu.ayudaamam.ListaRecetas;
 import unc.edu.ayudaamam.Model.Receta;
 
 public class MantenimientoReceta {
@@ -69,7 +67,7 @@ public class MantenimientoReceta {
     public ArrayList<String> mostrarListaRecetas(){
         ArrayList<String> lista = new ArrayList<>();
         for (Receta oP: olistaReceta){
-            lista.add(oP.toString());
+            lista.add(oP.getNombre()+"\t Tiempo: "+oP.getTiempo()+"\t Dificultad: "+oP.getDificultad());
         }
         return lista;
     }
@@ -84,8 +82,8 @@ public class MantenimientoReceta {
         cv.put("pasos",oReceta.getPasos());
         cv.put("dificultad",oReceta.getDificultad());
         cv.put("tipo",oReceta.getTipo());
-        String[] arg = {condicion};
-        oBD.update("Receta",cv,"nombre=?",arg);
+        String [] arg = {condicion};
+        oBD.update("Receta",cv,"nombre=?", arg);
         oBD.close();
         return true;
     }
@@ -98,6 +96,29 @@ public class MantenimientoReceta {
         int fila = oBD.delete("Receta","nombre=?",arg);
         if(fila>0)
             rpta = true;
+        oBD.close();
+        return rpta;
+    }
+
+    public boolean Buscar(Activity oActividad, String buscar){
+        boolean rpta = false;
+        GestionBD oBDHelper = new GestionBD(oActividad, nombreBD,null,1);
+        SQLiteDatabase oBD = oBDHelper.getWritableDatabase();
+        Cursor oRegistro = oBD.rawQuery("SELECT * FROM Receta where nombre like'%"+buscar+"%'",null);
+        if(oRegistro.moveToFirst()){
+            rpta = true;
+            do{
+                String nombre = oRegistro.getString(0);
+                String ingredientes = oRegistro.getString(1);
+                String tiempo = oRegistro.getString(2);
+                String pasos = oRegistro.getString(3);
+                String dificultad = oRegistro.getString(4);
+                String tipo = oRegistro.getString(5);
+                Receta oReceta = new Receta(nombre,ingredientes,tiempo,pasos,dificultad,tipo);
+                olistaReceta.add(oReceta);
+            }while(oRegistro.moveToNext());
+            oRegistro.close();
+        }
         oBD.close();
         return rpta;
     }

@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import unc.edu.ayudaamam.Data.MantenimientoReceta;
@@ -18,12 +19,14 @@ import unc.edu.ayudaamam.Model.Receta;
 public class EditarReceta extends AppCompatActivity {
     EditText txtNombre, txtIngredientes,txtTiempo, txtPasos;
     Spinner spDifiultad, spTipo;
+    TextView txtTitulo;
     Button btnEditar;
     String [] dificultades ={"Fácil","Medio","Difícil"};
     String [] tipoReceta ={"Carne","Pollo","Bebidas"};
     int indDificultad = 0, indTipo= 0;
     int recetaSelecionada;
     MantenimientoReceta oMantReceta = new MantenimientoReceta();
+    String condicion="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +35,7 @@ public class EditarReceta extends AppCompatActivity {
         txtIngredientes = findViewById(R.id.txtIngredientesEdit);
         txtTiempo = findViewById(R.id.txtTiempoEdit);
         txtPasos = findViewById(R.id.txtPasosEdit);
+        txtTitulo = findViewById(R.id.txtTitulo);
         btnEditar = findViewById(R.id.btnEditar);
         spDifiultad = findViewById(R.id.spDificultadEdit);
         spTipo = findViewById(R.id.spTipoEdit);
@@ -66,6 +70,8 @@ public class EditarReceta extends AppCompatActivity {
         recetaSelecionada = getIntent().getExtras().getInt("receta");
         oMantReceta.CargarListaReceta(EditarReceta.this);
         Receta oReceta = (Receta) oMantReceta.getArray().get(recetaSelecionada);
+        condicion = oReceta.getNombre();
+        txtTitulo.setText(txtTitulo.getText()+""+oReceta.getNombre());
         txtNombre.setText(oReceta.getNombre());
         txtIngredientes.setText(oReceta.getIngredientes());
         txtTiempo.setText(oReceta.getTiempo());
@@ -85,7 +91,7 @@ public class EditarReceta extends AppCompatActivity {
                 String tipo = tipoReceta[indTipo];
 
                 Receta oRecActulizada = new Receta(nombre,ingredientes,tiempo,pasos,dificultad,tipo);
-                if(oMantReceta.Actualizar(EditarReceta.this,oRecActulizada,nombre))
+                if(oMantReceta.Actualizar(EditarReceta.this,oRecActulizada, condicion))
                     Toast.makeText(EditarReceta.this,"Registro Correcto",Toast.LENGTH_SHORT).show();
                 else
                     Toast.makeText(EditarReceta.this,"Registro Incorrecto",Toast.LENGTH_SHORT).show();

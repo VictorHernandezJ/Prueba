@@ -64,8 +64,8 @@ public class RecetaDetallada extends AppCompatActivity {
                     Toast.makeText(RecetaDetallada.this,"La receta fue eliminada",Toast.LENGTH_LONG).show();
                 else
                     Toast.makeText(RecetaDetallada.this,"No se elimino la Receta",Toast.LENGTH_LONG).show();
-
-                //oIntento = new Intent(this, EditarReceta.class);
+                oIntento = new Intent(this,ListaRecetas.class);
+                startActivity(oIntento);
                 break;
         }
         return super.onOptionsItemSelected(item);

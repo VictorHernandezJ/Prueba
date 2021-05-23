@@ -41,7 +41,4 @@ public class Receta {
         return tipo;
     }
 
-    public String toString(){
-        return nombre;
-    }
 }
