@@ -11,7 +11,7 @@
         android:layout_width="344dp"
         android:layout_height="153dp"
         android:layout_marginRight="32dp"
-        android:fontFamily="@font/aclonica"
+        android:fontFamily="sans-serif"
         android:text="Bienvenida Mamá !!!!"
         android:textAlignment="center"
         android:textAllCaps="false"
