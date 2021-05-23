@@ -9,19 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AyudaAMamá">
-        <activity android:name=".IniciarSesion">
+        <activity android:name=".RecetaDetallada"></activity>
+        <activity android:name=".EditarReceta" />
+        <activity android:name=".ListaRecetas" />
+        <activity android:name=".AgregarReceta" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegistroUsuario" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".RecetaDetallada" />
-        <activity android:name=".EditarReceta" />
-        <activity android:name=".ListaRecetas" />
-        <activity android:name=".AgregarReceta" />
     </application>
 
 </manifest>
