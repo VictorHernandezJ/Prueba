@@ -184,13 +184,14 @@
         app:layout_constraintTop_toBottomOf="@+id/spTipoEdit" />
 
     <ScrollView
-        android:layout_width="360dp"
-        android:layout_height="286dp"
+        android:layout_width="377dp"
+        android:layout_height="928dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.192">
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:layout_width="match_parent"
