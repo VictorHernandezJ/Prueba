@@ -39,8 +39,8 @@
 
     <EditText
         android:id="@+id/txtPasos"
-        android:layout_width="306dp"
-        android:layout_height="145dp"
+        android:layout_width="304dp"
+        android:layout_height="93dp"
         android:layout_marginTop="24dp"
         android:ems="10"
         android:fontFamily="cursive"
@@ -55,8 +55,8 @@
 
     <EditText
         android:id="@+id/txtIngredientes"
-        android:layout_width="302dp"
-        android:layout_height="112dp"
+        android:layout_width="304dp"
+        android:layout_height="87dp"
         android:layout_marginTop="36dp"
         android:ems="10"
         android:fontFamily="cursive"
@@ -121,9 +121,8 @@
 
     <Spinner
         android:id="@+id/spTipo"
-        android:layout_width="128dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="144dp"
+        android:layout_height="40dp"
         android:layout_marginEnd="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -132,7 +131,7 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="100dp"
         android:fontFamily="cursive"
         android:text="Tipo"

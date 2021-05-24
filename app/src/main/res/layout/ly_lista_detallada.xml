@@ -38,7 +38,8 @@
         <ListView
             android:id="@+id/lvIngredientes"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:background="#99807D7D" />
 
         <TextView
             android:id="@+id/textView10"
@@ -53,6 +54,7 @@
         <ListView
             android:id="@+id/lvPreparacion"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:background="#99807D7D" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

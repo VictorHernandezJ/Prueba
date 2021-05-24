@@ -11,8 +11,9 @@
     <ListView
         android:id="@+id/lvLista"
         android:layout_width="376dp"
-        android:layout_height="540dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:background="#99807D7D"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.457"
         app:layout_constraintStart_toStartOf="parent"
