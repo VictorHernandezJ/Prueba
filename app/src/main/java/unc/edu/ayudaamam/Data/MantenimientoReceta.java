@@ -26,11 +26,13 @@ public class MantenimientoReceta {
         boolean rpta = false;
         // objeto para crear la base de datos
         GestionBD oBDHelper = new GestionBD(oActividad,nombreBD,null,1);
-        // para utilizar la base de datos
+        // para utilizar la base de datos, crea un objeto para leer y escribir sobre ella
         SQLiteDatabase oBD = oBDHelper.getWritableDatabase();
         if(oBD != null){
             //definir un objeto para las columnas de la tabla a utilizar en a base de datos
             ContentValues oColumnas = new ContentValues();
+            //darle los valores, metodo put nombre de la columna y su valor
+            //tiene que ser igual a los valores de tu tabla
             oColumnas.put("nombre",oReceta.getNombre());
             oColumnas.put("ingredientes",oReceta.getIngredientes());
             oColumnas.put("tiempo",oReceta.getTiempo());
@@ -46,9 +48,13 @@ public class MantenimientoReceta {
     }
 
     public void CargarListaReceta(Activity oActividad){
+        //crear la tabla
         GestionBD oBDHelper = new GestionBD(oActividad, nombreBD,null,1);
+        //para utilizar la bd
         SQLiteDatabase oBD = oBDHelper.getWritableDatabase();
+       //cursor una coleccion de filas
         Cursor oRegistro = oBD.rawQuery("SELECT * FROM Receta",null);
+        //para comprobar que hay elementos
         if(oRegistro.moveToFirst()){
             do{
                 String nombre = oRegistro.getString(0);
@@ -73,7 +79,9 @@ public class MantenimientoReceta {
     }
 
     public boolean Actualizar(Activity oActividad, Receta oReceta, String condicion){
+      //Crea la tabla
         GestionBD oBDHelper = new GestionBD(oActividad,nombreBD,null,1);
+
         SQLiteDatabase oBD = oBDHelper.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put("nombre",oReceta.getNombre());
@@ -93,6 +101,7 @@ public class MantenimientoReceta {
         GestionBD oBDHelper = new GestionBD(oActividad,nombreBD,null,1);
         SQLiteDatabase oBD = oBDHelper.getWritableDatabase();
         String [] arg ={olistaReceta.get(posicion).getNombre()};
+      //
         int fila = oBD.delete("Receta","nombre=?",arg);
         if(fila>0)
             rpta = true;
